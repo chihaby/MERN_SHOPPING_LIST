@@ -4,7 +4,8 @@
   "description": "Full stack shopping list application ",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "server": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,14 @@
   "bugs": {
     "url": "https://github.com/chihaby/MERN_SHOPPING_LIST/issues"
   },
-  "homepage": "https://github.com/chihaby/MERN_SHOPPING_LIST#readme"
+  "homepage": "https://github.com/chihaby/MERN_SHOPPING_LIST#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "concurrently": "^4.1.2",
+    "express": "^4.17.1",
+    "mongoose": "^5.7.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.2"
+  }
 }
