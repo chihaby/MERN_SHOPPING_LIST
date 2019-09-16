@@ -22,7 +22,8 @@ class ItemModal extends Component {
     toggle = () => {
         this.setState({
         modal: !this.state.modal
-    });
+        });
+    };
 
     onChange = e => {
         this.setState({ [e.target.name]: e.target.value})
@@ -31,7 +32,7 @@ class ItemModal extends Component {
     onSubmit = e => {
         e.preventDefault();
 
-        const new Item = {
+        const newItem = {
             id: uuid(),
             name: this.state.name
         }
@@ -41,14 +42,14 @@ class ItemModal extends Component {
 
         //close modal
         this.toggle();
-    }
+    };
 
     render () {
         return (
             <div>
                 <Button
                     color='dark'
-                    style={{marginBotton: '2rem'}}
+                    style={{marginBottom: '2rem'}}
                     onClick={this.toggle}
                     >Add Item
                 </Button>
@@ -78,4 +79,8 @@ class ItemModal extends Component {
     }
 }
 
-export default connect()(ItemModal);
+const mapStateToProps = state => ({
+    item: state.item
+})
+
+export default connect(mapStateToProps, { addItem })(ItemModal);
