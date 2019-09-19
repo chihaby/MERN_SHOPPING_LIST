@@ -10,7 +10,7 @@ const User = require('../../models/User');
 // @access  Public
 
 router.post('/', (req, res) => { 
-    const { name, email, password } = res.body;
+    const { name, email, password } = req.body;
 
     // Simple validation
     if(!name || !email || !password) {
@@ -19,7 +19,7 @@ router.post('/', (req, res) => {
 
     // Check for existing user
     User.findOne({ email })
-        .then(use r => {
+        .then(user => {
             if(user) return res.status(400).json({ msg: "User already exists" });
 
             const newUser = new User ({
