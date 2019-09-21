@@ -1,42 +1,16 @@
-import axios from "axios";
+import { GET_ERRORS, CLEAR_ERRORS } from "./types";
 
-import {
-    USER_LOADED,
-    USER_LOADING,
-    AUTH_ERROR,
-    LOGIN_SUCCESS,
-    LOGIN_FAIL,
-    LOGOUT_SUCCESS,
-    REGISTER_SUCCESS,
-    REGISTER_FAIL
-} from "./types";
-
-// check token & load user
-export const loadUser = () => (dispatch, getState) => {
-    //user loading
-    dispatch({ type: USER_LOADING });
-
-    // Get token from local storage
-    const token = getState().auth.token;
-
-    //Headers
-    const config = {
-        headers: {
-            "Content-type": "application/json"
-        }
+// Return errors
+export const returnErrors = (msg, status, id = null) => {
+    return {
+        type: GET_ERRORS,
+        payload: { msg, status, id }
     };
+};
 
-    // If token, add to headers
-    if (token) {
-        config.headers["x-auth-token"] = token;
-    }
-
-    axios.get("/api/auth/user", config).then(res =>
-        dispatch({
-            type: USER_LOADED,
-            payload: res.data
-        })
-    ).catch;
-
-    axios.get("/api/auth/user");
+// Clear errors
+export const clearErrors = () => {
+    return {
+        type: CLEAR_ERRORS
+    };
 };
