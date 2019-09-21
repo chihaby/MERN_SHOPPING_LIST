@@ -3,5 +3,7 @@
         "activityBar.background": "#91862a",
         "titleBar.activeBackground": "#91862a",
         "titleBar.activeForeground": "#F1FDF7"
-    }
+    },
+    "editor.fontFamily": "\"fira code\"",
+    "editor.fontLigatures": true
 }
