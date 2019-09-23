@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { GET_ITEMS, ADD_ITEM, DELETE_ITEM, ITEMS_LOADING  } from './types';
-import { set } from 'mongoose';
+// import { set } from 'mongoose';
 
 export const getItems = () =>dispatch => {
     dispatch(setItemsLoading());
