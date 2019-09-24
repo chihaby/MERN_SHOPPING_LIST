@@ -45,7 +45,9 @@ class RegisterModal extends Component {
 
         // If authenticated, close modal
         if (this.state.modal) {
+            console.log('close 1 from register')
             if (isAuthenticated) {
+                console.log('close 2 from register')
                 this.toggle();
             }
         }
